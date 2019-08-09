@@ -32,7 +32,7 @@
 					
 					$temp = Array();
 					
-					foreach  ($row as $key => $value)  $temp[$key] = utf8_encode($value);
+					foreach  ($row as $key => $value)  $temp[$key] = $value;
 					
 					$return[] = $temp;
 					
@@ -49,6 +49,7 @@
 		//	Run query
 		private function run( $qy )
 		{
+			$this->dbConnect->set_charset("utf8");
 			return mysqli_query( $this->dbConnect , $qy );
 		}
 		

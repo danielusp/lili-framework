@@ -80,7 +80,7 @@
 			} 
 
 			//	Show result in json format
-			echo json_encode( objectToArray( $output ) );
+			echo htmlspecialchars(json_encode( objectToArray( $output) ), ENT_QUOTES, 'UTF-8');
 			
 		}  else  {
 
