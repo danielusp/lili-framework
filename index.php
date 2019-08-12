@@ -10,6 +10,7 @@
 	*
 	* 	Data Example: ?class=lists&method=fu
 	---------------------------------------------*/
+	header('Content-type:application/json; charset=utf-8');
 	
 	require_once "config/config.php";
 
@@ -80,7 +81,7 @@
 			} 
 
 			//	Show result in json format
-			echo htmlspecialchars(json_encode( objectToArray( $output) ), ENT_QUOTES, 'UTF-8');
+			echo json_encode( objectToArray( $output ) );
 			
 		}  else  {
 
