@@ -25,6 +25,14 @@
 ##### Debug
 
   define( "ERROR_REPORTING" , 0 ); // Hide code errors
+
+## To run into Docker (optional for dev)
+
+  Type into console:
+
+  ```
+  $ ./docker-dev.sh
+  ```
   
 ## How to call the API
 
