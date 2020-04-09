@@ -10,6 +10,7 @@
 	{
 		
 		private $dbConnect;
+		private $insertedId;
 
 		public function __construct( $services )
 		{
@@ -46,11 +47,22 @@
 			
 		}
 
+		// Return id from auto increment insert
+		public function insertId() {
+			return $this->insertedId;
+		}
+
 		//	Run query
 		private function run( $qy )
 		{
 			$this->dbConnect->set_charset("utf8");
-			return mysqli_query( $this->dbConnect , $qy );
+			$ret = mysqli_query( $this->dbConnect , $qy );
+
+			if($id = mysqli_insert_id($this->dbConnect)) {
+				$this->insertedId = $id;
+			}
+
+			return $ret;
 		}
 		
 	}
